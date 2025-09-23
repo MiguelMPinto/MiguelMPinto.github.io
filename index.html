@@ -1,1 +1,149 @@
-"<h1>Ol�, sou o Miguel!</h1>" 
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portefólio — Miguel Pinto</title>
+  <meta name="description" content="Portefólio do Miguel Pinto — Eng. Informática @ ISEL. Kotlin, PostgreSQL, Python, Pygame, Concurrency." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css?v=1" />
+  <link rel="icon" href="favicon.ico" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="#top">Miguel Pinto</a>
+      <nav class="nav">
+        <a href="#sobre">Sobre</a>
+        <a href="#skills">Skills</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <h1>Olá, sou o Miguel 👋</h1>
+          <p class="subtitle">
+            Estudante de Engenharia Informática @ ISEL. Gosto de <strong>Kotlin</strong>, <strong>PostgreSQL</strong>, <strong>Python</strong> e
+            de construir sistemas bem desenhados (APIs, reflexão/bytecode, concorrência).
+          </p>
+          <div class="cta">
+            <a class="btn" href="#projetos">Ver projetos</a>
+            <a class="btn ghost" href="cv.pdf" target="_blank" rel="noopener">Download CV</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" class="section">
+      <div class="container">
+        <h2>Sobre mim</h2>
+        <p>
+          Sou finalista de LEIC no ISEL. Tenho trabalhado em projetos académicos e pessoais:
+          mapeamento objeto-relacional dinâmico em Kotlin (Reflection e Class-File API),
+          servidores HTTP simples, jogos em Pygame e tarefas de concorrência (ThreadPoolExecutor).
+        </p>
+        <ul class="bullets">
+          <li>Foco em código limpo, testes e performance.</li>
+          <li>Experiência com Docker + PostgreSQL.</li>
+          <li>Interesse em engenharia de software e sistemas.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="container">
+        <h2>Skills</h2>
+        <div class="tags">
+          <span>Kotlin</span><span>Java</span><span>Python</span><span>Pygame</span>
+          <span>PostgreSQL</span><span>Docker</span><span>HTTP/REST</span>
+          <span>JUnit</span><span>Gradle</span><span>Git/GitHub</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos" class="section">
+      <div class="container">
+        <h2>Projetos em destaque</h2>
+
+        <div class="grid">
+          <article class="card">
+            <h3>jdbcRepo — Repository dinâmico</h3>
+            <p>
+              Implementação de um <em>Repository</em> genérico em Kotlin com Reflection e geração de bytecode (Class-File API).
+              Suporte a enums e associações, naming <code>camelCase → snake_case</code> e PostgreSQL com Docker.
+            </p>
+            <div class="tech"><span>Kotlin</span><span>PostgreSQL</span><span>Docker</span></div>
+            <div class="links">
+              <a class="btn small" href="https://github.com/MiguelMPinto/jdbcRepo" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>LS — Web API & Docs</h3>
+            <p>
+              Web API REST para gestão de utilizadores, clubes e rentals. OpenAPI <code>documentation.yaml</code>,
+              testes na camada HTTP e servidor Jetty na porta 8080.
+            </p>
+            <div class="tech"><span>Kotlin</span><span>HTTP</span><span>OpenAPI</span></div>
+            <div class="links">
+              <a class="btn small" href="https://github.com/MiguelMPinto/ls-project" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>ThreadPoolExecutor (PC)</h3>
+            <p>
+              Executor com criação/terminação dinâmica de threads, <code>shutdown</code>,
+              <code>awaitTermination(timeout)</code> e versão <code>suspend fun awaitTermination()</code>.
+            </p>
+            <div class="tech"><span>Kotlin</span><span>Concorrência</span></div>
+            <div class="links">
+              <a class="btn small" href="https://github.com/MiguelMPinto/pc-threadpool" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Jogo em Pygame</h3>
+            <p>
+              Plataforma com vários níveis, chaves e plataformas móveis. Loop de jogo, colisões e assets simples.
+            </p>
+            <div class="tech"><span>Python</span><span>Pygame</span></div>
+            <div class="links">
+              <a class="btn small" href="https://github.com/MiguelMPinto/pygame-game" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="section">
+      <div class="container">
+        <h2>Contacto</h2>
+        <p>Aberto a estágios/alternance e projetos.</p>
+        <div class="contact">
+          <a class="btn" href="mailto:miguel@example.com">📧 Email</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/miguelmpinto" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn ghost" href="https://github.com/MiguelMPinto" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> Miguel Pinto — hospedado em GitHub Pages</small>
+    </div>
+  </footer>
+
+  <script>
+    // Atualiza o ano automaticamente (sem dependências)
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

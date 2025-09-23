@@ -1,0 +1,183 @@
+/* ===========================
+   Tema base + modo claro/escuro automático
+   =========================== */
+:root{
+  --bg: #0b0d10;
+  --panel: #111419;
+  --text: #e7e9ee;
+  --muted: #a0a7b2;
+  --brand: #4f8cff;
+  --brand-2: #22c55e;
+  --border: #1e232b;
+  --shadow-sm: 0 6px 16px rgba(0,0,0,.22);
+  --shadow-md: 0 14px 38px rgba(0,0,0,.28);
+  --radius: 18px;
+  --radius-sm: 12px;
+}
+
+@media (prefers-color-scheme: light){
+  :root{
+    --bg: #f7f8fb;
+    --panel: #ffffff;
+    --text: #0f1220;
+    --muted: #616b7a;
+    --brand: #3667ff;
+    --brand-2: #16a34a;
+    --border: #e6e9f0;
+    --shadow-sm: 0 6px 16px rgba(0,0,0,.08);
+    --shadow-md: 0 14px 38px rgba(0,0,0,.12);
+  }
+}
+
+/* ===========================
+   Reset saudável
+   =========================== */
+*{ box-sizing:border-box }
+html,body{ height:100% }
+body{
+  margin:0;
+  font-family: Inter, system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img{ max-width:100%; display:block }
+a{ color: inherit }
+
+/* ===========================
+   Layout
+   =========================== */
+.container{ width:min(100%, 1080px); margin-inline:auto; padding:0 20px }
+.section{ padding: 56px 0 }
+.section h2{ font-size: clamp(1.4rem, 1.2rem + 1.5vw, 2rem); margin:0 0 14px }
+
+/* ===========================
+   Header sticky
+   =========================== */
+.site-header{
+  position: sticky; top:0; z-index: 50;
+  backdrop-filter: blur(10px);
+  background: color-mix(in oklab, var(--panel) 60%, transparent);
+  border-bottom: 1px solid var(--border);
+}
+.site-header .container{
+  min-height:68px; display:flex; align-items:center; justify-content:space-between; gap:16px;
+}
+.logo{
+  text-decoration:none; font-weight:700; letter-spacing:.2px;
+  padding:8px 12px; border-radius: 10px;
+  transition: transform .15s ease;
+}
+.logo:hover{ transform: translateY(-1px) }
+
+.nav{ display:flex; gap: 18px; align-items:center }
+.nav a{
+  text-decoration:none; color: var(--muted); font-weight:600;
+  padding:8px 10px; border-radius: 10px; transition: background .15s ease, color .15s ease;
+}
+.nav a:hover{ color: var(--text); background: color-mix(in oklab, var(--panel), var(--border) 35% ) }
+
+/* ===========================
+   Hero com gradiente sutil
+   =========================== */
+.hero{
+  padding: 92px 0 56px;
+  background:
+    radial-gradient(900px 450px at 15% -10%, color-mix(in oklab, var(--brand) 22%, transparent) , transparent 60%),
+    radial-gradient(700px 420px at 110% 0%, color-mix(in oklab, var(--brand-2) 22%, transparent), transparent 60%);
+}
+.hero-inner{ display:grid; gap:22px; align-items:center }
+h1{
+  margin:0 0 10px;
+  font-size: clamp(2rem, 1.4rem + 2.6vw, 3rem);
+  letter-spacing:.2px;
+}
+.subtitle{ color: var(--muted); font-size: clamp(1rem, .95rem + .3vw, 1.08rem); max-width:68ch }
+.cta{ display:flex; gap:12px; margin-top:16px; flex-wrap: wrap }
+
+/* ===========================
+   Botões
+   =========================== */
+.btn{
+  display:inline-block; padding: 10px 16px;
+  border-radius: 999px; text-decoration:none; font-weight:700;
+  background: var(--brand); color:#fff; border:1px solid transparent;
+  box-shadow: var(--shadow-sm);
+  transition: transform .12s ease, filter .12s ease, box-shadow .2s ease;
+}
+.btn:hover{ transform: translateY(-1px); filter: brightness(1.06); box-shadow: var(--shadow-md) }
+.btn:active{ transform: translateY(0) scale(.99) }
+.btn.ghost{
+  background: transparent; color: var(--text); border:1px solid var(--border)
+}
+.btn.small{ padding:8px 12px; font-size:.95rem }
+
+/* ===========================
+   Bullets / tags
+   =========================== */
+.bullets{ margin: 10px 0 0; padding-left: 18px }
+.bullets li{ margin: 6px 0 }
+
+.tags,.tech{
+  display:flex; gap:8px; flex-wrap:wrap; margin-top:10px
+}
+.tags span,.tech span{
+  padding:6px 10px; border-radius: 999px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--muted); font-weight:600; font-size:.92rem
+}
+
+/* ===========================
+   Cards & grid de projetos
+   =========================== */
+.grid{
+  display:grid; gap:18px;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+}
+.card{
+  background: var(--panel);
+  border:1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow-sm);
+  transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.card:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: color-mix(in oklab, var(--border), var(--brand) 25%);
+}
+.card h3{ margin: 6px 0 8px; font-size: 1.15rem }
+.card p{ color: var(--muted); margin:0 0 10px }
+
+/* ===========================
+   Contacto
+   =========================== */
+.contact{ display:flex; gap:12px; flex-wrap:wrap }
+
+/* ===========================
+   Footer
+   =========================== */
+.site-footer{
+  border-top:1px solid var(--border);
+  padding: 28px 0; margin-top: 24px; text-align:center; color: var(--muted)
+}
+
+/* ===========================
+   Acessibilidade / UX
+   =========================== */
+:focus-visible{
+  outline: 3px solid color-mix(in oklab, var(--brand) 65%, #fff 35%);
+  outline-offset: 3px; border-radius: 10px;
+}
+@media (prefers-reduced-motion: reduce){
+  *{ animation: none !important; transition: none !important }
+}
+
+/* Ancoragem suave e margens de scroll para títulos
+   (para que o header não tape as âncoras) */
+html{ scroll-behavior:smooth }
+[id]{ scroll-margin-top: 84px }
