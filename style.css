@@ -56,12 +56,17 @@ a{ color: inherit }
 /* ===========================
    Header sticky
    =========================== */
-.site-header{
-  position: sticky; top:0; z-index: 50;
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
   backdrop-filter: blur(10px);
   background: color-mix(in oklab, var(--panel) 60%, transparent);
   border-bottom: 1px solid var(--border);
 }
+
 .site-header .container{
   min-height:68px; display:flex; align-items:center; justify-content:space-between; gap:16px;
 }
@@ -181,3 +186,60 @@ h1{
    (para que o header não tape as âncoras) */
 html{ scroll-behavior:smooth }
 [id]{ scroll-margin-top: 84px }
+
+
+/* Grid específico para projetos */
+.grid.projects{
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Card de projeto com thumbnail */
+.project{ overflow: hidden }
+.project .thumb{
+  position: relative;
+  display:block;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  box-shadow: var(--shadow-sm);
+}
+.project .thumb img{
+  width:100%; height:100%; object-fit: cover; display:block;
+  transform: scale(1.02);
+  transition: transform .35s ease, filter .35s ease;
+}
+.project:hover .thumb img{ transform: scale(1.06) }
+
+/* leve overlay em hover */
+.project .thumb::before{
+  content:""; position:absolute; inset:0;
+  background: linear-gradient(to top, rgba(0,0,0,.18), rgba(0,0,0,0) 60%);
+  opacity:0; transition: opacity .25s ease;
+}
+.project:hover .thumb::before{ opacity: .7 }
+
+.project .card-body{ padding-top: 12px }
+
+/* grid 2-col para a zona de skills */
+.grid.split{
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  align-items: start;
+}
+
+/* subgrupos (Dominadas / Conhecidas) */
+.subgroup{ margin-top: 8px }
+.subhead{
+  display:inline-block; font-weight:700; font-size:.95rem;
+  color: var(--muted); margin: 4px 0 6px;
+}
+
+/* chips um pouco mais compactos nesta área */
+.tags.tight{ gap:6px }
+.tags.tight span{ padding:5px 9px; font-size:.9rem }
+
+.email-pill{
+  padding: 10px 14px; border: 1px solid var(--border);
+  border-radius: 999px; background: var(--panel); font-weight: 700;
+}
