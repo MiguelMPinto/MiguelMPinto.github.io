@@ -243,3 +243,56 @@ html{ scroll-behavior:smooth }
   padding: 10px 14px; border: 1px solid var(--border);
   border-radius: 999px; background: var(--panel); font-weight: 700;
 }
+
+
+/* Enquadramento ajustável por-card */
+.project .thumb img{
+  width:100%; height:100%; object-fit: cover;
+  /* permite controlar foco com variáveis CSS */
+  object-position: var(--pos-x, 50%) var(--pos-y, 50%);
+}
+
+/* Quando quiseres ver a imagem inteira (letterbox) */
+.project .thumb.contain img{
+  object-fit: contain;
+  background: var(--panel);
+}
+
+/* não dar margem por defeito ao bloco de links */
+.card .links { margin-top: 0; }
+
+/* dar margem só entre skills (.tech) e o botão (.links) */
+.project .tech + .links { margin-top: 8px; }  /* ajusta 6–10px ao teu gosto */
+
+
+/* Cursor de zoom na miniatura */
+.project .thumb { cursor: zoom-in; }
+
+/* Overlay do lightbox */
+.lightbox-modal{
+  position: fixed; inset: 0;
+  display: none; align-items: center; justify-content: center;
+  background: rgba(0,0,0,.82);
+  padding: 24px; z-index: 1000;
+}
+.lightbox-modal.open{ display:flex; animation: fade .15s ease }
+@keyframes fade{ from{opacity:0} to{opacity:1} }
+
+.lightbox-img{
+  max-width: min(95vw, 1400px);
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.5);
+}
+
+.lightbox-caption{
+  margin-top: 10px; color: #fff; text-align: center; opacity:.9;
+  font-weight: 600;
+}
+
+.lightbox-close{
+  position: absolute; top: 16px; right: 16px;
+  border: 1px solid var(--border); background: var(--panel); color: var(--text);
+  border-radius: 999px; padding: 8px 12px; font-weight: 700; cursor: pointer;
+}
