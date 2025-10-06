@@ -17,58 +17,68 @@
     <header class="site-header">
         <div class="container">
             <a class="logo" href="#top">Miguel Pinto</a>
-            <nav class="nav">
-                <a href="#sobre">Sobre</a>
+
+            <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Abrir menu">
+                ☰
+            </button>
+
+            <nav id="primary-nav" class="nav">
+                <a href="#sobre">About</a>
                 <a href="#skills">Skills</a>
-                <a href="#projetos">Projetos</a>
-                <a href="#contacto">Contacto</a>
+                <a href="#projetos">Projects</a>
+                <a href="#contacto">Contact</a>
             </nav>
         </div>
     </header>
+
 
     <main id="top">
         <section class="hero">
             <div class="container hero-inner">
                 <div>
-                    <h1>Olá, sou o Miguel 👋</h1>
+                    <h1>Hello, I'm Miguel 👋</h1>
                     <p class="subtitle">
-                        Finalista de Engenharia Informática @ ISEL. Gosto de resolver problemas complexos
-                        e de gerir projetos. </p>
+                        Final-year Computer Engineering student @ ISEL. I enjoy solving complex problems
+                        and managing projects.
+                    </p>
                     <div class="cta">
-                        <a class="btn" href="#projetos">Ver projetos</a>
+                        <a class="btn" href="#projetos">View Projects</a>
                         <a class="btn ghost" href="./ressource/Curriculo.pdf" target="_blank" rel="noopener">Download
                             CV</a>
                     </div>
+
                 </div>
             </div>
         </section>
 
         <section id="sobre" class="section">
             <div class="container">
-                <h2>Sobre mim</h2>
+                <h2>About Me</h2>
                 <p>
-                    Sou estudante de Engenharia Informática e de Computadores no ISEL (3.º ano), com interesse por áreas
-                    como lógica, programação, estruturas de dados e desenvolvimento de software. Estudei no Liceu
-                    Francês em Lisboa, experiência que me deu rigor académico, mentalidade aberta e fluência em várias
-                    línguas.
-                    Fora da academia, sou escuteiro e voluntário, onde aprendi valores de liderança, resiliência e
-                    trabalho em equipa. Sou curioso, gosto de aprender de forma autónoma e procuro constantemente
-                    desafios que me façam crescer técnica e pessoalmente. </p>
+                    I’m a third-year Computer Engineering and Informatics student at ISEL,
+                    with strong interest in areas such as logic, programming, data structures,
+                    and software development. I studied at the French Lycée in Lisbon,
+                    an experience that gave me academic rigor, an open mindset, and fluency in multiple languages.
+                    Outside academia, I’m a scout and volunteer, where I’ve learned values of leadership,
+                    resilience, and teamwork. I’m curious, enjoy learning independently,
+                    and constantly seek challenges that help me grow both technically and personally.
+                </p>
             </div>
+
         </section>
 
         <section id="skills" class="section">
             <div class="container">
-                <h2>Linguagens</h2>
+                <h2>Languages & Tools</h2>
 
                 <div class="grid split">
-                    <!-- Coluna 1: Linguagens -->
+                    <!-- Column 1: Programming Languages & Technologies -->
                     <article class="card">
                         <div class="tags tight">
                             <span>Kotlin</span><span>Java</span><span>Python</span><span>JavaScript</span>
                             <span>HTML</span><span>CSS</span><span>SQL</span><span>PostgreSQL</span>
                             <span>Node.js</span><span>Spring MVC</span><span>JPA (Java Persistence API)</span>
-                            <span>API REST</span><span>OpenAPI/Swagger</span>
+                            <span>REST API</span><span>OpenAPI/Swagger</span>
                             <span>Android Studio</span><span>JUnit</span><span>Gradle</span>
                             <span>Git</span><span>GitHub</span><span>Docker</span><span>Linux</span>
                             <span>VirtualBox</span><span>VHDL</span><span>C</span><span>Assembly</span>
@@ -77,6 +87,7 @@
                 </div>
             </div>
         </section>
+
 
 
         <section id="projetos" class="section">
@@ -194,8 +205,8 @@
 
         <section id="contacto" class="section">
             <div class="container">
-                <h2>Contacto</h2>
-                <p>Aberto a estágios/alternance e projetos.</p>
+                <h2>Contact</h2>
+                <p>Open to internships, work placements, and projects.</p>
 
                 <div class="contact">
                     <!-- Email visível -->
@@ -213,7 +224,7 @@
 
     <footer class="site-footer">
         <div class="container">
-            <small>© <span id="year"></span> Miguel Pinto — hospedado em GitHub Pages</small>
+            <small>© <span id="year"></span> Miguel Pinto — hosted on GitHub Pages</small>
         </div>
     </footer>
     <!-- Lightbox -->
@@ -224,6 +235,23 @@
             <div id="lightbox-cap" class="lightbox-caption"></div>
         </div>
     </div>
+
+    <script>
+        const header = document.querySelector('.site-header');
+        const toggle = document.querySelector('.nav-toggle');
+        const nav = document.getElementById('primary-nav');
+
+        toggle.addEventListener('click', () => {
+            const open = header.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', String(open));
+        });
+
+        // fecha menu quando clica num link (em mobile)
+        nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+            header.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false');
+        }));
+    </script>
+
 
     <script>
         // abre

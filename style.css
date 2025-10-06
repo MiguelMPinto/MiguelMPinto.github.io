@@ -296,3 +296,43 @@ html{ scroll-behavior:smooth }
   border: 1px solid var(--border); background: var(--panel); color: var(--text);
   border-radius: 999px; padding: 8px 12px; font-weight: 700; cursor: pointer;
 }
+
+
+/* --- Nav mobile por omissão --- */
+.nav {
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  padding: 8px 0 12px;
+}
+
+/* Botão hambúrguer */
+.nav-toggle{
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 1.6rem;
+  line-height: 1;
+  padding: 6px 8px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.nav-toggle:focus-visible{
+  outline: 3px solid color-mix(in oklab, var(--brand) 65%, #fff 35%);
+  outline-offset: 3px;
+}
+
+/* Quando o menu está aberto (o JS mete .open no header) */
+.site-header.open .nav{ display: flex; }
+
+/* Desktop ≥768px: mostra nav inline e esconde hambúrguer */
+@media (min-width: 768px){
+  .nav-toggle{ display: none; }
+  .nav{
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    padding: 0;
+  }
+}
